@@ -1,0 +1,7 @@
+C:\Users\Malef\OneDrive\Escritorio\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\TrabajoPracticoP3.csproj.AssemblyReference.cache
+C:\Users\Malef\OneDrive\Escritorio\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\TrabajoPracticoP3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Malef\OneDrive\Escritorio\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\TrabajoPracticoP3.AssemblyInfoInputs.cache
+C:\Users\Malef\OneDrive\Escritorio\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\TrabajoPracticoP3.AssemblyInfo.cs
+C:\Users\Malef\OneDrive\Escritorio\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\TrabajoPracticoP3.csproj.CoreCompileInputs.cache
+C:\Users\Malef\OneDrive\Escritorio\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\TrabajoPracticoP3.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Malef\OneDrive\Escritorio\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\TrabajoPracticoP3.MvcApplicationPartsAssemblyInfo.cache
