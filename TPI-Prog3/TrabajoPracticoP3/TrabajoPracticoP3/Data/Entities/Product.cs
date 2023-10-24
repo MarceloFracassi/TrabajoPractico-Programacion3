@@ -8,9 +8,9 @@ namespace TrabajoPracticoP3.Data.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Price { get; set; }
+        public string? Name { get; set; }
+        public string? Price { get; set; }
 
-        public List<OrderProduct> OrderProducts { get; set; }
+        public List<OrderProduct>? OrderProducts { get; set; }
     }
 }

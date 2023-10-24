@@ -8,14 +8,15 @@ namespace TrabajoPracticoP3.Data.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Payment { get; set; }
+        public string? Payment { get; set; }
         public DateTime CreationDate { get; } = DateTime.Now.ToUniversalTime();
-        public string TotalPrize { get; set; }
+        public string? TotalPrize { get; set; }
 
-        public List<OrderProduct> OrderProducts { get; set; }
+        public List<OrderProduct>? OrderProducts { get; set; }
+        public List<Client>? Clients { get; set; } = new List<Client>();  
 
         [ForeignKey("ClientId")]
-        public Client Client { get; set; }
+        public Client? Client { get; set; }
         public int ClientId { get; set; }
     }
 
