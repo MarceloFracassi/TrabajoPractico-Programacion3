@@ -18,6 +18,7 @@ namespace TrabajoPracticoP3.DBContext
 
         public Context(DbContextOptions<Context> options) : base(options)
         {
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -84,13 +85,13 @@ namespace TrabajoPracticoP3.DBContext
                    Name = "Pizza de Pepperoni",
                    Price = "4000"
                },
-              
 
-            
-        
+
+
+
 
             modelBuilder.Entity<Order>()
-                .HasOne(sub => sub.Client)
+                .HasMany(sub => sub.Clients)
                 .WithMany(pro => pro.OrderAttended)
                 .UsingEntity(j => j
                     .ToTable("ClientOrder")
@@ -100,7 +101,7 @@ namespace TrabajoPracticoP3.DBContext
                             new { ClientId= 5, OrderId = 1},
                             new { ClientId = 4, OrderId = 2},
                         }
-                    )),
+                    )));
 
             modelBuilder.Entity<Order>()
                 .HasOne(sub => sub.Client);
