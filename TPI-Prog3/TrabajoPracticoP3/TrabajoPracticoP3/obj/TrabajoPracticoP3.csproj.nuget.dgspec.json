@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {}
+    "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {
+    "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
         "projectName": "TrabajoPracticoP3",
-        "projectPath": "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
-        "packagesPath": "C:\\Users\\SebaDo03\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SebaDo03\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,31 +42,35 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -88,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

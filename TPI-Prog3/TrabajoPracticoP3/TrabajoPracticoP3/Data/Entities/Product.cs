@@ -11,6 +11,6 @@ namespace TrabajoPracticoP3.Data.Entities
         public string? Name { get; set; }
         public string? Price { get; set; }
 
-        public List<OrderProduct>? OrderProducts { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }
