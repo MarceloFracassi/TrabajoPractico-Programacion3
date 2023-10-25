@@ -11,9 +11,8 @@ namespace TrabajoPracticoP3.Data.Entities
         public string? Payment { get; set; }
         public DateTime CreationDate { get; } = DateTime.Now.ToUniversalTime();
         public string? TotalPrize { get; set; }
+        public ICollection<Product> Products { get; set; } = new List<Product>();
 
-        public List<OrderProduct>? OrderProducts { get; set; }
-        public List<Client>? Clients { get; set; } = new List<Client>();  
 
         [ForeignKey("ClientId")]
         public Client? Client { get; set; }
