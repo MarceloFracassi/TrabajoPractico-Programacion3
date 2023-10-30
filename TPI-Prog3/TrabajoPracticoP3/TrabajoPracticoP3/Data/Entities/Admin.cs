@@ -2,7 +2,7 @@
 {
     public class Admin : User
     {
-        //public ICollection<Product> ProductAttended { get; set; } = new List<Subject>();
+        /*public ICollection<Product> Products{ get; set; } = new List<Product>();*/
 
     }
 }

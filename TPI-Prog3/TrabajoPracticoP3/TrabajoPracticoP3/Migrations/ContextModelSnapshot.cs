@@ -50,7 +50,7 @@ namespace TrabajoPracticoP3.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("TrabajoPracticoP3.Data.Entities.Product", b =>
@@ -67,7 +67,7 @@ namespace TrabajoPracticoP3.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
 
                     b.HasData(
                         new
@@ -118,7 +118,7 @@ namespace TrabajoPracticoP3.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
 
                     b.HasDiscriminator<string>("UserType").HasValue("User");
 

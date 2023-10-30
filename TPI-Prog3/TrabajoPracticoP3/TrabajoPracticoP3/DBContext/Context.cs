@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿    using Microsoft.EntityFrameworkCore;
 using TrabajoPracticoP3.Data.Entities;
 
 namespace TrabajoPracticoP3.DBContext
@@ -92,6 +92,13 @@ namespace TrabajoPracticoP3.DBContext
                .HasMany(o => o.Products)  // Una orden puede contener varios productos
                .WithMany(p => p.Orders)    // Un producto puede estar en varias órdenes
                .UsingEntity(j => j.ToTable("OrderProduct"));
+
+            // Configurar la relación uno a muchos entre Admin y Product
+            /*modelBuilder.Entity<Product>()
+                .HasOne(p => p.ModifiedByAdmin)
+                .WithMany(a => a.Products)
+                .HasForeignKey(p => p.ModifiedByAdminId)
+                .OnDelete(DeleteBehavior.Restrict); // Esto evita la eliminación en cascada si se elimina un admin*/
 
             base.OnModelCreating(modelBuilder);
         }

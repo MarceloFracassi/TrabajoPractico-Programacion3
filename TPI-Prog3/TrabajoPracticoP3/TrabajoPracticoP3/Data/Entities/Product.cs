@@ -12,5 +12,11 @@ namespace TrabajoPracticoP3.Data.Entities
         public string? Price { get; set; }
 
         public List<Order> Orders { get; set; }
+
+        /*[ForeignKey("ModifiedByAdminId")]   ///FALTA LA RELACION ADMIN PRODUCT EN CONTEXT CON MIGRACION, NO NOS SALIO. PREGUNTAR.
+        public int ModifiedByAdminId { get; set; }
+
+        // Administrador que modificó este producto
+        public Admin ModifiedByAdmin { get; set; }*/
     }
 }
