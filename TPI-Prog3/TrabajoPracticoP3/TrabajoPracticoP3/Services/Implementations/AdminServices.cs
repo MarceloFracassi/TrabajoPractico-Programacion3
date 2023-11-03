@@ -15,19 +15,25 @@ namespace TrabajoPracticoP3.Services.Implementations
          _context = context;
         }
 
-        public List<Product> AddProduct() 
+        public int AddProduct(Product product)
         {
-            return _context.Products.ToList();
+            _context.Add(product);
+            _context.SaveChanges();
+            return product.Id;
         }
 
-        public List<Product> DeleteProduct()
+        public void DeleteProduct(int productId)
         {
-            return _context.Products.ToList();
-        }
+            Product productToDelete = _context.Products.FirstOrDefault(u => u.Id == productId);
+            productToDelete.State = false;
+            _context.Update(productToDelete);
+            _context.SaveChanges();
 
-        public List<Product> EditProduct()
+        }
+        public void EditProduct(Product product)
         {
-            return _context.Products.ToList();
+            _context.Update(product);
+            _context.SaveChanges();
         }
     }
 }

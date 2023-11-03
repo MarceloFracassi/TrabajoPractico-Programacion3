@@ -13,7 +13,7 @@ namespace TrabajoPracticoP3.Services.Implementations
             _context = context;
         }
 
-        public List<Order> SendOrders()   //Copie y pegue lo de pablo con nuestros metodos, hay que ver si es asi
+        public List<Order> SendOrders()  //COMO HACER EL CLIENT DTO PARA QUE ENVIE UNA ORDEN
         {
             return _context.Orders.ToList();
         }

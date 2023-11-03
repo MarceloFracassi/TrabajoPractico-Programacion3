@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SQLitePCL;
 using System.Security.Claims;
+using TrabajoPracticoP3.Data.Entities;
+using TrabajoPracticoP3.Data.Models;
+using TrabajoPracticoP3.Services.Implementations;
 using TrabajoPracticoP3.Services.Interfaces;
 
 namespace TrabajoPracticoP3.Controllers
@@ -17,30 +21,64 @@ namespace TrabajoPracticoP3.Controllers
         }
 
         [HttpPost]  //Es post?
-        public IActionResult AddProduct()
-        {
-            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;  //EN AMBOS COPIE Y PEGUE LO DE PABLO, HAY QUE PENSARLO
-            if (role == "Admin")
-                return Ok(_adminService.AddProduct());
-            return Forbid();
-        }
-
-        [HttpPut]  //put o patch
-        public IActionResult EditProduct()
-        {
-            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;  //EN AMBOS COPIE Y PEGUE LO DE PABLO, HAY QUE PENSARLO
-            if (role == "Admin")
-                return Ok(_adminService.AddProduct());
-            return Forbid();
-        }
-
-        [HttpDelete]  //Es put ?
-        public IActionResult DeleteProduct()
+        public IActionResult AddProduct([FromBody] ProductPostDto dto)  ///PRODUCT DTO
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
             if (role == "Admin")
-                return Ok(_adminService.DeleteProduct());
+
+            {
+                var product = new Product()
+                {
+                    Name = dto.Name,
+                    Price = dto.Price,
+
+                };
+                int id = _adminService.AddProduct(product);
+
+                return Ok(id);
+            }
             return Forbid();
+
+        }
+
+
+
+        [HttpPut]
+        public IActionResult EditProduct([FromBody] ProductUpdateDto updateProduct)
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value; //ESTO ESTA BIEN ?? 
+            if (role == "Admin")
+            {
+                Product productUpdate = new Product()
+
+                ///COMO HACER PARA QUE ADMIN MODIFIQUE UN PRODUCTO que no CLAIM
+                {
+
+                    Name = updateProduct.Name,
+                    Price = updateProduct.Price,
+
+                };
+
+                _adminService.EditProduct(productUpdate);
+                return Ok();
+
+            }
+            return Forbid();
+        }
+
+
+
+
+        [HttpDelete]
+        public IActionResult DeleteProduct()   ///COMO ELIMINAR PRODUCT ID SIN CLAIM.
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            if (role == "Admin")
+            {
+                int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+                _adminService.DeleteProduct(id);
+            }
+            return NoContent();
         }
     }
 }

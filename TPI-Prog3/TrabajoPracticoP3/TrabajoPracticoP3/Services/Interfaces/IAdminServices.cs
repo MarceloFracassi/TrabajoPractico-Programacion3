@@ -4,10 +4,10 @@ namespace TrabajoPracticoP3.Services.Interfaces
 {
     public interface IAdminServices
     {
-        public List<Product> AddProduct();
-        public List<Product> DeleteProduct();
+        public int AddProduct(Product product);
+        public void DeleteProduct(int productId);
 
-        public List<Product> EditProduct();
+        public void EditProduct(Product product);
 
     }
 }
