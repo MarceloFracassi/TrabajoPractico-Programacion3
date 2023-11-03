@@ -39,8 +39,9 @@ builder.Services.AddSwaggerGen(setupAction =>
 builder.Services.AddDbContext<Context>(dbContextOptions => dbContextOptions.UseSqlite(builder.Configuration["DB:ConnectionString"]));
 
 #region Inyecciones de dependencias
-
+builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IClientServices, ClientServices>();
+builder.Services.AddScoped<IAdminServices, AdminServices>();
 #endregion
 
 builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntenticación que tenemos que elegir después en PostMan para pasarle el token
