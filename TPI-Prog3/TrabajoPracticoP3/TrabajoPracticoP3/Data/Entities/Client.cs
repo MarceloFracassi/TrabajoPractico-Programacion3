@@ -2,6 +2,8 @@
 {
     public class Client : User
     {
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        public string? City { get; set; }
+        public string? Adress { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }

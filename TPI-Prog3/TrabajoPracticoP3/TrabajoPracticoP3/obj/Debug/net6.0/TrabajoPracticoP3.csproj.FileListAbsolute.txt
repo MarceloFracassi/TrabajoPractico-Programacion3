@@ -432,3 +432,4 @@ C:\Users\Usuario\Documents\Estesi\TrabajoPractico-Programacion3\TPI-Prog3\Trabaj
 C:\Users\Usuario\Documents\Estesi\TrabajoPractico-Programacion3\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\TrabajoPracticoP3.pdb
 C:\Users\Usuario\Documents\Estesi\TrabajoPractico-Programacion3\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\TrabajoPracticoP3.genruntimeconfig.cache
 C:\Users\Usuario\Documents\Estesi\TrabajoPractico-Programacion3\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\obj\Debug\net6.0\ref\TrabajoPracticoP3.dll
+C:\Users\Usuario\Documents\TrabajoPractico-Programacion3\TPI-Prog3\TrabajoPracticoP3\TrabajoPracticoP3\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

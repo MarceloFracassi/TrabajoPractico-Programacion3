@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Documents\\Estesi\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {}
+    "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Documents\\Estesi\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {
+    "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\Estesi\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
         "projectName": "TrabajoPracticoP3",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\Estesi\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\Estesi\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

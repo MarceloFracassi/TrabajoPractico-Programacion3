@@ -11,6 +11,7 @@ namespace TrabajoPracticoP3.DBContext
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<OrderProduct> OrderProducts { get; set; }
         public Context(DbContextOptions<Context> options) : base(options)
         {
 
@@ -20,7 +21,7 @@ namespace TrabajoPracticoP3.DBContext
         {
             modelBuilder.Entity<User>().HasDiscriminator(u => u.UserType);
 
- 
+
             modelBuilder.Entity<Admin>().HasData(new Admin
             {
                 Id = 1,
@@ -43,7 +44,7 @@ namespace TrabajoPracticoP3.DBContext
                     UserType = "Client",
                     Password = "123321",
                     PhoneNumber = "3415123212",
-                    Address = "Pellegrini 211"
+                    Adress = "Pellegrini 211"
                 },
                 new Client
                 {
@@ -55,7 +56,7 @@ namespace TrabajoPracticoP3.DBContext
                     UserType = "Client",
                     Password = "554466",
                     PhoneNumber = "3415123333",
-                    Address = "Mendoza 211"
+                    Adress = "Mendoza 211"
                 }
             );
 
@@ -80,18 +81,20 @@ namespace TrabajoPracticoP3.DBContext
                 }
             );
 
-        
 
-          
-             modelBuilder.Entity<Client>() //Antes de hacer la migración deje comentado esto 
-            .HasMany(c => c.Orders)  // Client tiene muchas Orders
-            .WithOne(o => o.Client)  // Order tiene un solo Client
-            .HasForeignKey(o => o.ClientId);
+
+
+            modelBuilder.Entity<User>().HasDiscriminator(u => u.UserType);
+
+            modelBuilder.Entity<OrderProduct>()
+                .HasOne(op => op.Product)
+                .WithMany()
+                .HasForeignKey(op => op.ProductId);
 
             modelBuilder.Entity<Order>()
-               .HasMany(o => o.Products)  // Una orden puede contener varios productos
-               .WithMany(p => p.Orders)    // Un producto puede estar en varias órdenes
-               .UsingEntity(j => j.ToTable("OrderProduct"));
+                .HasMany(o => o.OrderProducts)
+                .WithOne()
+                .HasForeignKey(op => op.OrderId);
 
             // Configurar la relación uno a muchos entre Admin y Product
             /*modelBuilder.Entity<Product>()
