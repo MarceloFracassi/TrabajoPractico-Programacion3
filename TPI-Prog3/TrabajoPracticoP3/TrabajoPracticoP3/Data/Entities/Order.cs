@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using TPI_P3_grupal.Data.Enum;
 
 namespace TrabajoPracticoP3.Data.Entities
 {
@@ -11,12 +12,14 @@ namespace TrabajoPracticoP3.Data.Entities
         public string? Payment { get; set; }
         public DateTime CreationDate { get; } = DateTime.Now.ToUniversalTime();
         public string? TotalPrize { get; set; }
-        public ICollection<Product> Products { get; set; } = new List<Product>();
 
+        public OrderState State { get; set; } = OrderState.Pending;
 
         [ForeignKey("ClientId")]
         public Client? Client { get; set; }
         public int ClientId { get; set; }
+
+        public List<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
     }
 
 }
