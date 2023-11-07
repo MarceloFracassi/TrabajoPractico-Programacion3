@@ -22,14 +22,12 @@ namespace TrabajoPracticoP3.Services.Implementations
             return product.Id;
         }
 
-        public void DeleteProduct(int productId)
+        public void DeleteProduct(Product Product)
         {
-            Product productToDelete = _context.Products.FirstOrDefault(u => u.Id == productId);
-            productToDelete.State = false;
-            _context.Update(productToDelete);
+            _context.Remove(Product);
             _context.SaveChanges();
-
         }
+
         public Product GetProductById(int productId)
         {
             return _context.Products.FirstOrDefault(p => p.Id == productId);

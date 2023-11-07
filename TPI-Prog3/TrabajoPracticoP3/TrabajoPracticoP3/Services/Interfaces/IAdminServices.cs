@@ -5,7 +5,7 @@ namespace TrabajoPracticoP3.Services.Interfaces
     public interface IAdminServices
     {
         public int AddProduct(Product product);
-        public void DeleteProduct(int productId);
+        public void DeleteProduct(Product product);
 
         public void EditProduct(Product product);
         public Product GetProductById (int productId);
