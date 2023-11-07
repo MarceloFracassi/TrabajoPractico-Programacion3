@@ -44,24 +44,29 @@ namespace TrabajoPracticoP3.Controllers
 
 
         [HttpPut]
-        public IActionResult EditProduct([FromBody] ProductUpdateDto updateProduct)
+        public IActionResult EditProduct(int productId, [FromBody] ProductUpdateDto updateProduct)
         {
-            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value; //ESTO ESTA BIEN ?? 
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+
             if (role == "Admin")
             {
-                Product productUpdate = new Product()
+                // Recuperar el producto existente por su ID
+                Product existingProduct = _adminService.GetProductById(productId);
 
-                ///COMO HACER PARA QUE ADMIN MODIFIQUE UN PRODUCTO que no CLAIM
+                if (existingProduct != null)
                 {
+                    // Aplicar las actualizaciones
+                    existingProduct.Name = updateProduct.Name;
+                    existingProduct.Price = updateProduct.Price;
 
-                    Name = updateProduct.Name,
-                    Price = updateProduct.Price,
-
-                };
-
-                _adminService.EditProduct(productUpdate);
-                return Ok();
-
+                    // Guardar los cambios
+                    _adminService.EditProduct(existingProduct);
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound("Producto no encontrado"); // Puedes personalizar el mensaje de acuerdo a tus necesidades
+                }
             }
             return Forbid();
         }

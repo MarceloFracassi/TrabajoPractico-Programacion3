@@ -30,6 +30,11 @@ namespace TrabajoPracticoP3.Services.Implementations
             _context.SaveChanges();
 
         }
+        public Product GetProductById(int productId)
+        {
+            return _context.Products.FirstOrDefault(p => p.Id == productId);
+        }
+
         public void EditProduct(Product product)
         {
             _context.Update(product);

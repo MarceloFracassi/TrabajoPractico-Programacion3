@@ -8,6 +8,8 @@ namespace TrabajoPracticoP3.Services.Interfaces
         public void DeleteProduct(int productId);
 
         public void EditProduct(Product product);
+        public Product GetProductById (int productId);
+
 
     }
 }
