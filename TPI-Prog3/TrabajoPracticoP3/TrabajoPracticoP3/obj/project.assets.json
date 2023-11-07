@@ -3679,19 +3679,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SebaDo03\\.nuget\\packages\\": {}
+    "C:\\Users\\Malef\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SebaDo03\\Source\\Repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
+      "projectUniqueName": "C:\\Users\\Malef\\OneDrive\\Escritorio\\TPI-P3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
       "projectName": "TrabajoPracticoP3",
-      "projectPath": "C:\\Users\\SebaDo03\\Source\\Repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
-      "packagesPath": "C:\\Users\\SebaDo03\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SebaDo03\\Source\\Repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\obj\\",
+      "projectPath": "C:\\Users\\Malef\\OneDrive\\Escritorio\\TPI-P3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
+      "packagesPath": "C:\\Users\\Malef\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Malef\\OneDrive\\Escritorio\\TPI-P3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SebaDo03\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Malef\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3773,7 +3773,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\TPI-Prog3",
-    "\\TPI-Prog3\\TrabajoPracticoP3"
+    "\\TPI-Prog3\\TrabajoPracticoP3",
+    "\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3",
+    "\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\Controllers"
   ],
-  "SelectedNode": "\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3.sln",
+  "SelectedNode": "\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\Controllers\\AdminController.cs",
   "PreviewInSolutionExplorer": false
 }

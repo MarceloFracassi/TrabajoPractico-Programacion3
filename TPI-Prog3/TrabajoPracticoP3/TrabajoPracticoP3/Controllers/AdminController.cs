@@ -20,8 +20,8 @@ namespace TrabajoPracticoP3.Controllers
             _adminService = adminService;
         }
 
-        [HttpPost]  //Es post?
-        public IActionResult AddProduct([FromBody] ProductPostDto dto)  ///PRODUCT DTO
+        [HttpPost] 
+        public IActionResult AddProduct([FromBody] ProductPostDto dto)  
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
             if (role == "Admin")
@@ -50,22 +50,19 @@ namespace TrabajoPracticoP3.Controllers
 
             if (role == "Admin")
             {
-                // Recuperar el producto existente por su ID
                 Product existingProduct = _adminService.GetProductById(productId);
 
                 if (existingProduct != null)
                 {
-                    // Aplicar las actualizaciones
                     existingProduct.Name = updateProduct.Name;
                     existingProduct.Price = updateProduct.Price;
 
-                    // Guardar los cambios
                     _adminService.EditProduct(existingProduct);
                     return Ok();
                 }
                 else
                 {
-                    return NotFound("Producto no encontrado"); // Puedes personalizar el mensaje de acuerdo a tus necesidades
+                    return NotFound("Producto no encontrado");
                 }
             }
             return Forbid();
@@ -74,7 +71,7 @@ namespace TrabajoPracticoP3.Controllers
 
 
         [HttpDelete]
-        public IActionResult DeleteProduct(int productId)   ///COMO ELIMINAR PRODUCT ID SIN CLAIM.
+        public IActionResult DeleteProduct(int productId)   
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
             if (role == "Admin")
