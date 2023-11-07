@@ -4,13 +4,13 @@ using TrabajoPracticoP3.Services.Interfaces;
 
 namespace TrabajoPracticoP3.Services.Implementations
 {
-    public class UserService
+    public class UserService : IUserService
     {
         private readonly Context _context;
 
         public UserService(Context context)
         {
-            _context = context; 
+            _context = context;
         }
 
         public Tuple<bool, User?> ValidarUsuario(string email, string password)
@@ -24,8 +24,7 @@ namespace TrabajoPracticoP3.Services.Implementations
             }
             return new Tuple<bool, User?>(false, null);
 
-
-
         }
+
     }
 }

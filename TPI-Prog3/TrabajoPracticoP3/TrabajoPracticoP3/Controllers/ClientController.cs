@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using TrabajoPracticoP3.Services.Implementations;
@@ -15,6 +16,16 @@ namespace TrabajoPracticoP3.Controllers
         public ClientController(IClientServices clientService)
         {
             _clientService = clientService;
+        }
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult GetClients()
+        {
+            string role = User.Claims.SingleOrDefault(c => c.Type.Contains("role")).Value;
+            if (role == "Admin")
+                return Ok(_clientService.GetClients());
+            return Forbid();
         }
 
         [HttpPost]
