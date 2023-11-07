@@ -73,15 +73,22 @@ namespace TrabajoPracticoP3.Controllers
 
 
 
-
         [HttpDelete]
-        public IActionResult DeleteProduct()   ///COMO ELIMINAR PRODUCT ID SIN CLAIM.
+        public IActionResult DeleteProduct(int productId)   ///COMO ELIMINAR PRODUCT ID SIN CLAIM.
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
             if (role == "Admin")
             {
-                int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-                _adminService.DeleteProduct(id);
+                Product productToDelete = _adminService.GetProductById(productId);
+
+                if (productToDelete != null)
+                {
+                    _adminService.DeleteProduct(productToDelete);
+                }
+                else
+                {
+                    return NotFound("producto no encontrado");
+                }
             }
             return NoContent();
         }
