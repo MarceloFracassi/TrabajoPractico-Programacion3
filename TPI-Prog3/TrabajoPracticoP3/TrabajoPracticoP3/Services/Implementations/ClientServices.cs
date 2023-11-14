@@ -17,15 +17,31 @@ namespace TrabajoPracticoP3.Services.Implementations
         {
             return _context.Clients.ToList();
         }
-        public List<Order> SendOrders()  //COMO HACER EL CLIENT DTO PARA QUE ENVIE UNA ORDEN
+        public Client? GetUserById(int userId)
         {
-            return _context.Orders.ToList();
+            return _context.Clients.FirstOrDefault(u => u.Id == userId);
         }
+        public int CreateClient(User user)
+        {
+            _context.Add(user);
+            _context.SaveChanges();
+            return user.Id;
+        }
+        //public void UpdateClient(User user)
+        //{
+        //    _context.Update(user);
+        //    _context.SaveChanges();
 
-        public List<Order> ModifyOrder()
-        {
-            return _context.Orders.ToList();
-        }
+        //}
+
+        //public void DeleteClient(int userId)
+        //{
+        //    User userToDelete = _context.Users.FirstOrDefault(u => u.Id == userId);
+        //    userToDelete.State = false;
+        //    _context.Update(userToDelete);
+        //    _context.SaveChanges();
+
+        //}
 
     }
 }

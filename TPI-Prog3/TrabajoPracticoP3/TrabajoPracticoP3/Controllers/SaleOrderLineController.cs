@@ -50,8 +50,8 @@ namespace TrabajoPracticoP3.Controllers
                 //    saleOrderLine.SaleOrderId = order.Id;
                 //}
 
-                var product = _saleOrderLineServices.GetSaleOrderLine(saleOrderLinePostDto.ProductId);
-                decimal total = product.Price * saleOrderLinePostDto.ProductQuntity;
+                //var product = _saleOrderLineServices.GetSaleOrderLine(saleOrderLinePostDto.ProductId);
+                //decimal total = product.Price * saleOrderLinePostDto.ProductQuntity;
 
                 SaleOrderLine saleOrderLinePost = new SaleOrderLine()
                 {
