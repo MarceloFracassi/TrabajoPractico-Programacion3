@@ -11,7 +11,7 @@ namespace TrabajoPracticoP3.DBContext
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
 
-        public DbSet<OrderProduct> OrderProducts { get; set; }
+        public DbSet<SaleOrderLine> SaleOrderLines { get; set; }
         public Context(DbContextOptions<Context> options) : base(options)
         {
 
@@ -86,15 +86,23 @@ namespace TrabajoPracticoP3.DBContext
 
             modelBuilder.Entity<User>().HasDiscriminator(u => u.UserType);
 
-            modelBuilder.Entity<OrderProduct>()
+            modelBuilder.Entity<SaleOrderLine>()
                 .HasOne(op => op.Product)
                 .WithMany()
                 .HasForeignKey(op => op.ProductId);
 
             modelBuilder.Entity<Order>()
-                .HasMany(o => o.OrderProducts)
+                .HasMany(o => o.SaleOrderLine)
                 .WithOne()
                 .HasForeignKey(op => op.OrderId);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Client)
+                .WithMany()
+                .HasForeignKey(o => o.ClientId);
+
+
+
 
             // Configurar la relación uno a muchos entre Admin y Product
             /*modelBuilder.Entity<Product>()

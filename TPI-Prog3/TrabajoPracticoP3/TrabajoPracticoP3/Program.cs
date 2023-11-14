@@ -42,6 +42,10 @@ builder.Services.AddDbContext<Context>(dbContextOptions => dbContextOptions.UseS
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IClientServices, ClientServices>();
 builder.Services.AddScoped<IAdminServices, AdminServices>();
+builder.Services.AddScoped<IOrderServices, OrderServices>();
+builder.Services.AddScoped<ISaleOrderLineServices, SaleOrderLineServices>();
+
+
 #endregion
 
 builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntenticación que tenemos que elegir después en PostMan para pasarle el token

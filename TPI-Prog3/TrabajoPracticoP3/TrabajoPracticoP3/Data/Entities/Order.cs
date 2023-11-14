@@ -19,7 +19,9 @@ namespace TrabajoPracticoP3.Data.Entities
         public Client? Client { get; set; }
         public int ClientId { get; set; }
 
-        public List<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
+        public List<SaleOrderLine> SaleOrderLine { get; set; } = new List<SaleOrderLine>();
+
+        //foreach de cantidad para TotalPrize 
     }
 
 }

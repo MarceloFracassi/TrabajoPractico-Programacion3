@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TrabajoPracticoP3.Data.Entities
 {
-    public class OrderProduct
+    public class SaleOrderLine
     {
 
             [Key]

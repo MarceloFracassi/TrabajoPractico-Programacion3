@@ -2,7 +2,7 @@
 
 namespace TrabajoPracticoP3.Services.Interfaces
 {
-    public interface IUserService
+    public interface IUserServices
     {
         public Tuple<bool, User?> ValidarUsuario(string email, string password);
     }
