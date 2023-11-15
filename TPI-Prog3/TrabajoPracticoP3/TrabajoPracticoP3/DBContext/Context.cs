@@ -31,6 +31,7 @@ namespace TrabajoPracticoP3.DBContext
                 UserName = "JuancitoPerez",
                 UserType = "Admin",
                 Password = "987654"
+
             });
 
             modelBuilder.Entity<Client>().HasData(
@@ -91,10 +92,10 @@ namespace TrabajoPracticoP3.DBContext
                 .WithMany()
                 .HasForeignKey(op => op.ProductId);
 
-            modelBuilder.Entity<Order>()
-                .HasMany(o => o.SaleOrderLine)
-                .WithOne()
-                .HasForeignKey(op => op.OrderId);
+            modelBuilder.Entity<SaleOrderLine>() 
+                .HasOne(o => o.Order)
+                .WithMany()
+                .HasForeignKey(op => op.OrderId);  
 
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.Client)
