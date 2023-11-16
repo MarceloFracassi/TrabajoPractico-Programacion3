@@ -14,7 +14,6 @@ namespace TrabajoPracticoP3.Controllers
     public class AdminController : ControllerBase
     {
         private readonly IAdminServices _adminService;
-
         public AdminController(IAdminServices adminService)
         {
             _adminService = adminService;
@@ -41,8 +40,6 @@ namespace TrabajoPracticoP3.Controllers
 
         }
 
-
-
         [HttpPut]
         public IActionResult EditProduct(int productId, [FromBody] ProductUpdateDto updateProduct)
         {
@@ -68,8 +65,6 @@ namespace TrabajoPracticoP3.Controllers
             return Forbid();
         }
 
-
-
         [HttpDelete]
         public IActionResult DeleteProduct(int productId)   
         {
@@ -89,5 +84,33 @@ namespace TrabajoPracticoP3.Controllers
             }
             return NoContent();
         }
+
+        [HttpPut("altaLogica")]
+        public IActionResult HighLogicProduct(int productId)
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            if (role == "Admin")
+            {
+
+                Product logicPutProduct = _adminService.GetProductById(productId);
+                logicPutProduct.State = true;
+                _adminService.HighLogicProduct(logicPutProduct);
+            }
+            return NoContent();
+        }
+
+        [HttpDelete("bajaLogica")]
+        public IActionResult DeleteLogicProduct(int productId)
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            if (role == "Admin")
+            {
+                Product logicDeleteProduct = _adminService.GetProductById(productId);
+                logicDeleteProduct.State = false;
+                _adminService.DeleteLogicProduct(logicDeleteProduct);
+            }
+            return NoContent();
+        }
     }
 }
+

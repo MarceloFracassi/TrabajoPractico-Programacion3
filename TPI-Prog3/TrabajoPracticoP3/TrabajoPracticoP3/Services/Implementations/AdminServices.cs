@@ -38,5 +38,18 @@ namespace TrabajoPracticoP3.Services.Implementations
             _context.Update(product);
             _context.SaveChanges();
         }
+
+        public void HighLogicProduct(Product product)
+        {
+            _context.Update(product);
+            _context.SaveChanges();
+        }
+
+
+        public void DeleteLogicProduct(Product product)
+        {
+            _context.Update(product);
+            _context.SaveChanges();
+        }
     }
 }

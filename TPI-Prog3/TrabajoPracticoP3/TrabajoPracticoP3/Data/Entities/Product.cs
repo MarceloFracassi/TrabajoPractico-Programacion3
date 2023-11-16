@@ -15,6 +15,8 @@ namespace TrabajoPracticoP3.Data.Entities
         [Required]
         public string? Price { get; set; }
 
+        public bool State { get; set; } = true;
+
 
         /*[ForeignKey("ModifiedByAdminId")]   ///FALTA LA RELACION ADMIN PRODUCT EN CONTEXT CON MIGRACION, NO NOS SALIO. PREGUNTAR.
         public int ModifiedByAdminId { get; set; }

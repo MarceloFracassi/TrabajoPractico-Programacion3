@@ -27,21 +27,30 @@ namespace TrabajoPracticoP3.Services.Implementations
             _context.SaveChanges();
             return user.Id;
         }
-        //public void UpdateClient(User user)
-        //{
-        //    _context.Update(user);
-        //    _context.SaveChanges();
+        public void UpdateClient(Client client)
+        {
+            _context.Update(client);
+            _context.SaveChanges();
 
-        //}
+        }
 
-        //public void DeleteClient(int userId)
-        //{
-        //    User userToDelete = _context.Users.FirstOrDefault(u => u.Id == userId);
-        //    userToDelete.State = false;
-        //    _context.Update(userToDelete);
-        //    _context.SaveChanges();
+        public void HighLogicUser(User user)
+        {
+            _context.Update(user);
+            _context.SaveChanges();
+        }
 
-        //}
+        public void DeleteUser(User user)
+        {
+            _context.Remove(user);
+            _context.SaveChanges();
+        }
+
+        public void LowLogicUser(User user)
+        {
+            _context.Update(user);
+            _context.SaveChanges();
+        }
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Sockets;
 using System.Security.Claims;
 using TrabajoPracticoP3.Data.Entities;
 using TrabajoPracticoP3.Data.Models;
@@ -31,10 +32,10 @@ namespace TrabajoPracticoP3.Controllers
             return Forbid();
         }
 
-        [HttpPost("NewClient")]
+        [HttpPost("{NewClient}")]
         public IActionResult CreateClient([FromBody] ClientPostDto dto)
         {
-            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value.ToString(); 
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value.ToString();
             if (role == "Client")
             {
                 var client = new Client()
@@ -46,7 +47,7 @@ namespace TrabajoPracticoP3.Controllers
                     Password = dto.Password,
                     UserType = "Client",
                     Adress = dto.Adress,
-                    PhoneNumber = dto.PhoneNumber  
+                    PhoneNumber = dto.PhoneNumber
                 };
 
                 int id = _clientService.CreateClient(client);
@@ -56,46 +57,79 @@ namespace TrabajoPracticoP3.Controllers
             return Forbid();
         }
 
-        //[HttpPut]
-        //public IActionResult UpdateClient([FromBody] ClientUpdateDto updateClient)
-        //{
+        [HttpPut("{UpdateClient}")]
+        public IActionResult UpdateClient([FromBody] ClientUpdateDto updateClient)
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            Client? uClient = null;
 
-        //    string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            if (role == "Client")
+            {
+                uClient = new Client()
+                {
+                    Id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value),
+                    Email = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email).Value,
+                    Name = updateClient.Name, 
+                    SurName = updateClient.SurName,
+                    UserName = updateClient.UserName,
+                    UserType = "Client",
+                    Adress = updateClient.Adress,
+                    PhoneNumber = updateClient.PhoneNumber,
+                    Password = updateClient.Password
+                };
+            }
 
-        //    if (role == "Client")
-        //    {
-        //        Client clientChange = _clientService.GetUserById(userId);
-        //        if (clientChange != null)
+            _clientService.UpdateClient(uClient);
 
-        //        {
-        //            clientChange.Name = updateClient.Name;
-        //            clientChange.SurName = updateClient.SurName;
-        //            clientChange.UserName = updateClient.UserName;
-        //            clientChange.UserType = "Client";
-        //            clientChange.Adress = updateClient.Adress;
-        //            clientChange.PhoneNumber = updateClient.PhoneNumber   /// tira error el savechange del service ---> dato con null
-        //        };
+            return Ok();
+        }
 
-        //        _clientService.UpdateClient(clientChange);  //esVoid
+        [HttpDelete("{DeleteClientId}")]
+        public IActionResult DeleteUser(int UserId)
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            if (role == "Admin")
+            {
+                User userToDelete = _clientService.GetUserById(UserId);
 
-        //        return Ok();
-        //    } else
-        //        {
-        //            return NotFound("Producto no encontrado");
-        //        }
-        //    return Forbid();
-        //}
+                if (userToDelete != null)
+                {
+                    _clientService.DeleteUser(userToDelete);
+                }
+                else
+                {
+                    return NotFound("Usuario no encontrado");
+                }
+            }
+            return NoContent();
+        }
 
+        [HttpPut("{altaLogic}")]
+        public IActionResult HighLogicUser(int userId)
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            if (role == "Admin")
+            {
 
+                User logicPutUser = _clientService.GetUserById(userId);
+                logicPutUser.State = true;
+                _clientService.HighLogicUser(logicPutUser);
+            }
+            return NoContent();
+        }
 
-
-        //[HttpDelete]
-        //public IActionResult DeleteClient()
-        //{
-        //    int id = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-        //    _clientService.DeleteClient(id);
-        //    return NoContent();
-        //}
+        [HttpDelete("{bajaLogic}")]
+        public IActionResult LowLogicUser(int UserId) //seria baja logica de user y no de client?
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            if (role == "Admin")
+            {
+                User logicDeleteclient = _clientService.GetUserById(UserId);
+                logicDeleteclient.State = false;
+                _clientService.LowLogicUser(logicDeleteclient);
+            }
+            return NoContent();
+        }
 
 
 

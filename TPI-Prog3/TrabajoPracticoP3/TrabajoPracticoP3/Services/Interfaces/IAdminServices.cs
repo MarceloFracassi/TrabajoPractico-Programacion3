@@ -10,6 +10,9 @@ namespace TrabajoPracticoP3.Services.Interfaces
         public void EditProduct(Product product);
         public Product GetProductById (int productId);
 
+        public void HighLogicProduct(Product product);
+        public void DeleteLogicProduct(Product product);
+
 
     }
 }
