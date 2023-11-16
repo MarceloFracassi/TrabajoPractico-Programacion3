@@ -18,8 +18,35 @@ namespace TrabajoPracticoP3.Controllers
         {
             _adminService = adminService;
         }
+        [HttpGet("ID")]
+        public IActionResult GetProductById(int ProductId) 
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            if (role == "Admin")
+            {
+                Product ProdId = _adminService.GetProductById(ProductId);
+                return Ok(ProdId);
 
-        [HttpPost] 
+            }
+            return Forbid();
+        }
+        [HttpGet("GetAll")]
+        public IActionResult GetAllProduct()
+        {
+            string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+            if (role == "Admin")
+            {
+                var products = _adminService.GetAllProduct();
+                if (products != null)
+                {
+                    return Ok(products);
+                }
+                return NotFound("No hay nada que mostrar");
+            }
+            return Forbid();
+        } 
+
+            [HttpPost] 
         public IActionResult AddProduct([FromBody] ProductPostDto dto)  
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
