@@ -40,20 +40,23 @@ namespace TrabajoPracticoP3.Controllers
         public IActionResult AddOrder([FromBody] OrderPostDto orderPostdto)
         {
             string role = User.Claims.SingleOrDefault(c => c.Type.Contains("role")).Value;
-            if (role == "Admin")
+            if (role == "Client")
             {
                 Order order = new Order()
                 {
                     ClientId = int.Parse(User.Claims.SingleOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value),
-                    Payment= orderPostdto.Payment,
+                    Payment = orderPostdto.Payment,
                     State = OrderState.Pending
-                   
                 };
-                
+
                 _orderService.AddOrder(order);
-            };
+             
+                return Ok(order);
+            }
+          
             return Forbid();
         }
+
 
         //Falataria ModifyOrder
 

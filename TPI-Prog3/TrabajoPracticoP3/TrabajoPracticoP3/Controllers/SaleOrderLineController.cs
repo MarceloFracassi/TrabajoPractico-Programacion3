@@ -1,69 +1,83 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using TPI_P3_grupal.Data.Enum;
 using TrabajoPracticoP3.Data.Entities;
 using TrabajoPracticoP3.Data.Models;
-using TrabajoPracticoP3.Services.Implementations;
 using TrabajoPracticoP3.Services.Interfaces;
 
-namespace TrabajoPracticoP3.Controllers
+[Route("api/[controller]")]
+[ApiController]
+[Authorize]
+public class SaleOrderLineController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    [Authorize]
-    public class SaleOrderLineController : ControllerBase
+    private readonly ISaleOrderLineServices _saleOrderLineServices;
+    private readonly IOrderServices _orderServices;
+    private readonly IAdminServices _adminServices;
+
+    public SaleOrderLineController(ISaleOrderLineServices saleOrderLineServices, IOrderServices orderServices, IAdminServices adminServices)
     {
-        private readonly ISaleOrderLineServices _saleOrderLineServices;
+        _saleOrderLineServices = saleOrderLineServices;
+        _orderServices = orderServices;
+        _adminServices = adminServices;
+    }
 
-        public SaleOrderLineController(ISaleOrderLineServices saleOrderLineServices)
+    [HttpGet("{id}")]
+    public IActionResult GetSaleOrderLine([FromRoute] int id)
+    {
+        string role = User.Claims.SingleOrDefault(c => c.Type.Contains("role")).Value;
+        if (role == "Admin")
         {
-            _saleOrderLineServices = saleOrderLineServices;
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetSaleOrderLine([FromRoute] int id)
-        {
-            string role = User.Claims.SingleOrDefault(c => c.Type.Contains("role")).Value;
-            if (role == "Admin")
+            var saleOrderLine = _saleOrderLineServices.GetSaleOrderLine(id);
+            if (saleOrderLine != null)
             {
-                var saleOrderLine = _saleOrderLineServices.GetSaleOrderLine(id);
-                if (saleOrderLine != null)
-                {
-                    return Ok(saleOrderLine);
-                }
-                return NotFound();
+                return Ok(saleOrderLine);
             }
-            return Forbid();
+            return NotFound();
         }
+        return Forbid();
+    }
 
-
-        [HttpPost]
-        public IActionResult AddSaleOrderLine([FromBody] SaleOrderLinePostDto saleOrderLinePostDto)
+    [HttpPost]
+    public IActionResult AddSaleOrderLine([FromBody] SaleOrderLinePostDto saleOrderLinePostDto)
+    {
+        string role = User.Claims.SingleOrDefault(c => c.Type.Contains("role")).Value;
+        if (role == "Client")
         {
-            string role = User.Claims.SingleOrDefault(c => c.Type.Contains("role")).Value;
-            if (role == "Client")
+            // Obtiene el ID del cliente desde las reclamaciones del usuario.
+            int clientId = int.Parse(User.Claims.SingleOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
+
+            // Obtiene el último ID de la orden para el cliente.
+            Order latestOrder = _orderServices.GetLatestOrderForClient(clientId);
+            if (latestOrder == null)
             {
+                // Puedes manejar este caso según tus requisitos, por ejemplo, retornar un BadRequest
+                return BadRequest("No hay órdenes para este cliente.");
+            }
 
-                //foreach (var saleOrderLine in saleOrderLine)
-                //{
-                //    saleOrderLine.SaleOrderId = order.Id;
-                //}
+            int orderId = latestOrder.Id;
 
-                //var product = _saleOrderLineServices.GetSaleOrderLine(saleOrderLinePostDto.ProductId);
-                //decimal total = product.Price * saleOrderLinePostDto.ProductQuntity;
+            // Filtra los detalles del producto por su ID utilizando el servicio de Admin
+            Product product = _adminServices.GetProductById(saleOrderLinePostDto.ProductId);
+            if (product == null)
+            {
+                // Puedes manejar este caso según tus requisitos, por ejemplo, retornar un BadRequest
+                return BadRequest("Producto no encontrado.");
+            }
 
-                SaleOrderLine saleOrderLinePost = new SaleOrderLine()
-                {
-                    OrderId = saleOrderLinePostDto.OrderId,
-                    ProductId = saleOrderLinePostDto.ProductId,
-                    ProductQuntity = saleOrderLinePostDto.ProductQuntity,
-
-                };
-
-                _saleOrderLineServices.AddSaleOrderLine(saleOrderLinePost);
+            // Crea la línea de orden de venta incluyendo los detalles del producto
+            SaleOrderLine saleOrderLinePost = new SaleOrderLine()
+            {
+                OrderId = orderId,
+                ProductId = saleOrderLinePostDto.ProductId,
+                ProductQuntity = saleOrderLinePostDto.ProductQuntity,
+                Product = product // Asigna el producto a la línea de orden de venta
             };
-            return Forbid();
+
+            _saleOrderLineServices.AddSaleOrderLine(saleOrderLinePost);
+
+            return Ok(saleOrderLinePost);
         }
+
+        return Forbid();
     }
 }

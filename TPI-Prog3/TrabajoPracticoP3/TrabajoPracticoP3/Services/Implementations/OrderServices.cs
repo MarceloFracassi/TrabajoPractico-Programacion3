@@ -29,6 +29,12 @@ namespace TrabajoPracticoP3.Services.Implementations
 
             return order.Id;
         }
-
+        public Order? GetLatestOrderForClient(int clientId)
+        {
+            return _context.Orders
+                .Where(o => o.ClientId == clientId)
+                .OrderByDescending(o => o.Id)
+                .FirstOrDefault();
+        }
     }
 }
