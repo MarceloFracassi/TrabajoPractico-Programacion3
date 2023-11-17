@@ -9,8 +9,6 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -32,7 +30,7 @@ builder.Services.AddSwaggerGen(setupAction =>
                 Reference = new OpenApiReference
                 {
                     Type = ReferenceType.SecurityScheme,
-                    Id = "TrabajoPracticoP3BearerAuth" } //Tiene que coincidir con el id seteado arriba en la definición
+                    Id = "TrabajoPracticoP3BearerAuth" }
                 }, new List<string>() }
     });
 }); ;
@@ -66,7 +64,7 @@ builder.Services.AddAuthentication("Bearer") //"Bearer" es el tipo de auntentica
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
