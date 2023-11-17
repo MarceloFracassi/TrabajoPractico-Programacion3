@@ -32,6 +32,7 @@ namespace TrabajoPracticoP3.Services.Implementations
         {
             return _context.Products.FirstOrDefault(p => p.Id == productId);
         }
+
         public List<Product> GetAllProduct() => _context.Products.ToList();
 
         public void EditProduct(Product product)
@@ -45,7 +46,6 @@ namespace TrabajoPracticoP3.Services.Implementations
             _context.Update(product);
             _context.SaveChanges();
         }
-
 
         public void DeleteLogicProduct(Product product)
         {

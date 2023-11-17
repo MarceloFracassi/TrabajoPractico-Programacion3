@@ -8,6 +8,5 @@ namespace TrabajoPracticoP3.Data.Models
     {
         public string? Payment { get; set; }
         public DateTime CreationDate { get; } = DateTime.Now.ToUniversalTime();
-
     }
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\TPIP3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {}
+    "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {}
   },
   "projects": {
-    "F:\\TPIP3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {
+    "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\TPIP3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
+        "projectUniqueName": "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
         "projectName": "TrabajoPracticoP3",
-        "projectPath": "F:\\TPIP3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
-        "packagesPath": "C:\\Users\\Imperium\\.nuget\\packages\\",
-        "outputPath": "F:\\TPIP3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\obj\\",
+        "projectPath": "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\TrabajoPracticoP3.csproj",
+        "packagesPath": "C:\\Users\\SebaDo03\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SebaDo03\\source\\repos\\TrabajoPractico-Programacion3\\TPI-Prog3\\TrabajoPracticoP3\\TrabajoPracticoP3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Imperium\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SebaDo03\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23455.8\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

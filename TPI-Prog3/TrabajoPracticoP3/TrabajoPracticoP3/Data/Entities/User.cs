@@ -21,7 +21,5 @@ namespace TrabajoPracticoP3.Data.Entities
         public string? Password { get; set; }
 
         public bool State { get; set; } = true; 
-
-
     }
 }

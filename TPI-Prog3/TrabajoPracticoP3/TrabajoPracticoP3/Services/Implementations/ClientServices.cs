@@ -17,16 +17,19 @@ namespace TrabajoPracticoP3.Services.Implementations
         {
             return _context.Clients.ToList();
         }
+
         public Client? GetUserById(int userId)
         {
             return _context.Clients.FirstOrDefault(u => u.Id == userId);
         }
+
         public int CreateClient(User user)
         {
             _context.Add(user);
             _context.SaveChanges();
             return user.Id;
         }
+
         public void UpdateClient(Client client)
         {
             _context.Update(client);

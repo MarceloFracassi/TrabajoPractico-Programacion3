@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(setupAction =>
 {
     setupAction.AddSecurityDefinition("TrabajoPracticoP3BearerAuth", new OpenApiSecurityScheme() //Esto va a permitir usar swagger con el token.
@@ -77,7 +78,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseAuthorization();
-
 
 app.MapControllers();
 

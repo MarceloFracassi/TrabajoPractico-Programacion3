@@ -13,6 +13,7 @@ namespace TrabajoPracticoP3.Services.Implementations
         {
             _context = context;
         }
+
         public SaleOrderLine? GetSaleOrderLine(int id)
         {
             return _context.SaleOrderLines
@@ -27,6 +28,5 @@ namespace TrabajoPracticoP3.Services.Implementations
 
             return saleOrderLine.Id;
         }
-
     }
 }

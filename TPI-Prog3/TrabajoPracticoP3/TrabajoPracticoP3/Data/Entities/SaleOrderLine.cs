@@ -12,7 +12,7 @@ namespace TrabajoPracticoP3.Data.Entities
 
             [ForeignKey("OrderId")]
             public int OrderId { get; set; }
-            public Order Order { get; set; }   /// <--
+            public Order Order { get; set; }
 
             [ForeignKey("ProductId")]
             public int ProductId { get; set; }

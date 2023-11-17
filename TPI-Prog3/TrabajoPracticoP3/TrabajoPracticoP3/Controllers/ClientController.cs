@@ -16,14 +16,14 @@ namespace TrabajoPracticoP3.Controllers
     public class ClientController : ControllerBase
     {
         private readonly IClientServices _clientService;
-        private object userId;
 
         public ClientController(IClientServices clientService)
         {
             _clientService = clientService;
         }
 
-        [HttpGet]
+
+        [HttpGet("GetClients")]
         public IActionResult GetClients()
         {
             string role = User.Claims.SingleOrDefault(c => c.Type.Contains("role")).Value;
@@ -32,7 +32,8 @@ namespace TrabajoPracticoP3.Controllers
             return Forbid();
         }
 
-        [HttpPost("{NewClient}")]
+
+        [HttpPost("NewClient")]
         public IActionResult CreateClient([FromBody] ClientPostDto dto)
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value.ToString();
@@ -57,7 +58,8 @@ namespace TrabajoPracticoP3.Controllers
             return Forbid();
         }
 
-        [HttpPut("{UpdateClient}")]
+
+        [HttpPut("UpdateClient")]
         public IActionResult UpdateClient([FromBody] ClientUpdateDto updateClient)
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
@@ -84,7 +86,8 @@ namespace TrabajoPracticoP3.Controllers
             return Ok();
         }
 
-        [HttpDelete("{DeleteClientId}")]
+
+        [HttpDelete("DeleteClient")]
         public IActionResult DeleteUser(int UserId)
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
@@ -104,7 +107,8 @@ namespace TrabajoPracticoP3.Controllers
             return NoContent();
         }
 
-        [HttpPut("{altaLogic}")]
+
+        [HttpPut("HighLogic")]
         public IActionResult HighLogicUser(int userId)
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
@@ -118,8 +122,9 @@ namespace TrabajoPracticoP3.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{bajaLogic}")]
-        public IActionResult LowLogicUser(int UserId) //seria baja logica de user y no de client?
+
+        [HttpDelete("LowLogic")]
+        public IActionResult LowLogicUser(int UserId)
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
             if (role == "Admin")
@@ -130,8 +135,5 @@ namespace TrabajoPracticoP3.Controllers
             }
             return NoContent();
         }
-
-
-
     }
 }

@@ -20,6 +20,7 @@ namespace TrabajoPracticoP3.Controllers
             _orderService = orderService;
         }
 
+
         [HttpGet("{id}")]
         public IActionResult GetOrder([FromRoute] int id)
         {
@@ -36,13 +37,14 @@ namespace TrabajoPracticoP3.Controllers
             return Forbid();
         }
 
+
         [HttpPost]
         public IActionResult AddOrder([FromBody] OrderPostDto orderPostdto)
         {
             string role = User.Claims.SingleOrDefault(c => c.Type.Contains("role")).Value;
             if (role == "Client")
             {
-                Order order = new Order()
+                Order order = new()
                 {
                     ClientId = int.Parse(User.Claims.SingleOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value),
                     Payment = orderPostdto.Payment,
@@ -59,7 +61,5 @@ namespace TrabajoPracticoP3.Controllers
 
 
         //Falataria ModifyOrder
-
-
     }
 }

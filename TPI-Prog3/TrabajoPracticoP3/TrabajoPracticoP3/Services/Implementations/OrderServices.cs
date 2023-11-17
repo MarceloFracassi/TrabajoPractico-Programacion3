@@ -29,6 +29,7 @@ namespace TrabajoPracticoP3.Services.Implementations
 
             return order.Id;
         }
+
         public Order? GetLatestOrderForClient(int clientId)
         {
             return _context.Orders

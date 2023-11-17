@@ -82,9 +82,6 @@ namespace TrabajoPracticoP3.DBContext
                 }
             );
 
-
-
-
             modelBuilder.Entity<User>().HasDiscriminator(u => u.UserType);
 
             modelBuilder.Entity<SaleOrderLine>()
@@ -101,16 +98,6 @@ namespace TrabajoPracticoP3.DBContext
                 .HasOne(o => o.Client)
                 .WithMany()
                 .HasForeignKey(o => o.ClientId);
-
-
-
-
-            // Configurar la relación uno a muchos entre Admin y Product
-            /*modelBuilder.Entity<Product>()
-                .HasOne(p => p.ModifiedByAdmin)
-                .WithMany(a => a.Products)
-                .HasForeignKey(p => p.ModifiedByAdminId)
-                .OnDelete(DeleteBehavior.Restrict); // Esto evita la eliminación en cascada si se elimina un admin*/
 
             base.OnModelCreating(modelBuilder);
         }

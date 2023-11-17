@@ -21,6 +21,7 @@ public class SaleOrderLineController : ControllerBase
         _adminServices = adminServices;
     }
 
+
     [HttpGet("{id}")]
     public IActionResult GetSaleOrderLine([FromRoute] int id)
     {
@@ -37,47 +38,43 @@ public class SaleOrderLineController : ControllerBase
         return Forbid();
     }
 
-    [HttpPost]
+
+    [HttpPost("AddSaleOrderLine")]
     public IActionResult AddSaleOrderLine([FromBody] SaleOrderLinePostDto saleOrderLinePostDto)
     {
         string role = User.Claims.SingleOrDefault(c => c.Type.Contains("role")).Value;
         if (role == "Client")
         {
-            // Obtiene el ID del cliente desde las reclamaciones del usuario.
             int clientId = int.Parse(User.Claims.SingleOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
 
-            // Obtiene el último ID de la orden para el cliente.
             Order latestOrder = _orderServices.GetLatestOrderForClient(clientId);
+
             if (latestOrder == null)
             {
-                // Puedes manejar este caso según tus requisitos, por ejemplo, retornar un BadRequest
                 return BadRequest("No hay órdenes para este cliente.");
             }
 
             int orderId = latestOrder.Id;
 
-            // Filtra los detalles del producto por su ID utilizando el servicio de Admin
             Product product = _adminServices.GetProductById(saleOrderLinePostDto.ProductId);
+
             if (product == null)
             {
-                // Puedes manejar este caso según tus requisitos, por ejemplo, retornar un BadRequest
                 return BadRequest("Producto no encontrado.");
             }
 
-            // Crea la línea de orden de venta incluyendo los detalles del producto
-            SaleOrderLine saleOrderLinePost = new SaleOrderLine()
+            SaleOrderLine saleOrderLinePost = new()
             {
                 OrderId = orderId,
                 ProductId = saleOrderLinePostDto.ProductId,
                 ProductQuntity = saleOrderLinePostDto.ProductQuntity,
-                Product = product // Asigna el producto a la línea de orden de venta
+                Product = product
             };
 
             _saleOrderLineServices.AddSaleOrderLine(saleOrderLinePost);
 
             return Ok(saleOrderLinePost);
         }
-
         return Forbid();
     }
 }

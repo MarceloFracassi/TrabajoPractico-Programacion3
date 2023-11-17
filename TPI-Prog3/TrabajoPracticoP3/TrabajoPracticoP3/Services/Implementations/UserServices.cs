@@ -25,6 +25,5 @@ namespace TrabajoPracticoP3.Services.Implementations
             return new Tuple<bool, User?>(false, null);
 
         }
-
     }
 }

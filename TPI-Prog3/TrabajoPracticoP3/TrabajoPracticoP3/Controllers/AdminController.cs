@@ -14,11 +14,14 @@ namespace TrabajoPracticoP3.Controllers
     public class AdminController : ControllerBase
     {
         private readonly IAdminServices _adminService;
+
         public AdminController(IAdminServices adminService)
         {
             _adminService = adminService;
         }
-        [HttpGet("ID")]
+
+
+        [HttpGet("GetProductId")]
         public IActionResult GetProductById(int ProductId) 
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
@@ -30,7 +33,9 @@ namespace TrabajoPracticoP3.Controllers
             }
             return Forbid();
         }
-        [HttpGet("GetAll")]
+
+
+        [HttpGet("GetAllProducts")]
         public IActionResult GetAllProduct()
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
@@ -46,7 +51,8 @@ namespace TrabajoPracticoP3.Controllers
             return Forbid();
         } 
 
-            [HttpPost] 
+
+        [HttpPost("NewClient")] 
         public IActionResult AddProduct([FromBody] ProductPostDto dto)  
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
@@ -67,7 +73,8 @@ namespace TrabajoPracticoP3.Controllers
 
         }
 
-        [HttpPut]
+
+        [HttpPut("UpdateProduct")]
         public IActionResult EditProduct(int productId, [FromBody] ProductUpdateDto updateProduct)
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
@@ -92,7 +99,8 @@ namespace TrabajoPracticoP3.Controllers
             return Forbid();
         }
 
-        [HttpDelete]
+
+        [HttpDelete("DeleteProduct")]
         public IActionResult DeleteProduct(int productId)   
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
@@ -112,13 +120,13 @@ namespace TrabajoPracticoP3.Controllers
             return NoContent();
         }
 
-        [HttpPut("altaLogica")]
+
+        [HttpPut("HighLogic")]
         public IActionResult HighLogicProduct(int productId)
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
             if (role == "Admin")
             {
-
                 Product logicPutProduct = _adminService.GetProductById(productId);
                 logicPutProduct.State = true;
                 _adminService.HighLogicProduct(logicPutProduct);
@@ -126,7 +134,8 @@ namespace TrabajoPracticoP3.Controllers
             return NoContent();
         }
 
-        [HttpDelete("bajaLogica")]
+
+        [HttpDelete("LowLogic")]
         public IActionResult DeleteLogicProduct(int productId)
         {
             string role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
