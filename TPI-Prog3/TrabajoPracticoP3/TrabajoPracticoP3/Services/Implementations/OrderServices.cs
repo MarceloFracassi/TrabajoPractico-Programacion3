@@ -7,9 +7,9 @@ namespace TrabajoPracticoP3.Services.Implementations
 {
     public class OrderServices : IOrderServices
     {
-        private readonly Context _context;
+        private readonly ECommerceContext _context;
 
-        public OrderServices(Context context)
+        public OrderServices(ECommerceContext context)
         {
             _context = context;
         }

@@ -7,9 +7,9 @@ namespace TrabajoPracticoP3.Services.Implementations
 {
     public class SaleOrderLineServices : ISaleOrderLineServices
     {
-        private readonly Context _context;
+        private readonly ECommerceContext _context;
 
-        public SaleOrderLineServices(Context context)
+        public SaleOrderLineServices(ECommerceContext context)
         {
             _context = context;
         }

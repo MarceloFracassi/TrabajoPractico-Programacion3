@@ -9,7 +9,7 @@ using TrabajoPracticoP3.DBContext;
 
 namespace TrabajoPracticoP3.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ECommerceContext))]
     partial class ContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

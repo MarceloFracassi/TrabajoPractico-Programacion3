@@ -6,9 +6,9 @@ namespace TrabajoPracticoP3.Services.Implementations
 {
     public class ClientServices : IClientServices
     {
-        private readonly Context _context;
+        private readonly ECommerceContext _context;
 
-        public ClientServices(Context context)
+        public ClientServices(ECommerceContext context)
         {
             _context = context;
         }

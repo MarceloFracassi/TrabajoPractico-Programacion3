@@ -6,9 +6,9 @@ namespace TrabajoPracticoP3.Services.Implementations
 {
     public class UserService : IUserServices
     {
-        private readonly Context _context;
+        private readonly ECommerceContext _context;
 
-        public UserService(Context context)
+        public UserService(ECommerceContext context)
         {
             _context = context;
         }

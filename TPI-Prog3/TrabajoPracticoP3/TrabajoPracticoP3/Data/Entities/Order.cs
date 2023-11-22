@@ -21,7 +21,6 @@ namespace TrabajoPracticoP3.Data.Entities
 
         public List<SaleOrderLine> SaleOrderLine { get; set; } = new List<SaleOrderLine>();
 
-        //foreach de cantidad para TotalPrize 
     }
 
 }

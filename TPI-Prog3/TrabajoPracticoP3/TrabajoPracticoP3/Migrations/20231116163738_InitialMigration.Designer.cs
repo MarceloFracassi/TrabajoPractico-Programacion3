@@ -10,7 +10,7 @@ using TrabajoPracticoP3.DBContext;
 
 namespace TrabajoPracticoP3.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(ECommerceContext))]
     [Migration("20231116163738_InitialMigration")]
     partial class InitialMigration
     {

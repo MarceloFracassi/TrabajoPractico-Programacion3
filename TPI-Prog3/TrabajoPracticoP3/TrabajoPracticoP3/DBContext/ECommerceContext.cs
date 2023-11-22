@@ -3,7 +3,7 @@ using TrabajoPracticoP3.Data.Entities;
 
 namespace TrabajoPracticoP3.DBContext
 {
-    public class Context : DbContext
+    public class ECommerceContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Admin> Admins { get; set; }
@@ -12,7 +12,7 @@ namespace TrabajoPracticoP3.DBContext
         public DbSet<Order> Orders { get; set; }
 
         public DbSet<SaleOrderLine> SaleOrderLines { get; set; }
-        public Context(DbContextOptions<Context> options) : base(options)
+        public ECommerceContext(DbContextOptions<ECommerceContext> options) : base(options)
         {
 
         }

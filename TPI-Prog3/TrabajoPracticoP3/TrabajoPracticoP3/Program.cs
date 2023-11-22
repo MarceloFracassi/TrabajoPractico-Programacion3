@@ -35,7 +35,7 @@ builder.Services.AddSwaggerGen(setupAction =>
     });
 }); ;
 
-builder.Services.AddDbContext<Context>(dbContextOptions => dbContextOptions.UseSqlite(builder.Configuration["DB:ConnectionString"]));
+builder.Services.AddDbContext<ECommerceContext>(dbContextOptions => dbContextOptions.UseSqlite(builder.Configuration["DB:ConnectionString"]));
 
 #region Inyecciones de dependencias
 builder.Services.AddScoped<UserService>();

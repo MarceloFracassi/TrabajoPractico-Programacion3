@@ -8,9 +8,9 @@ namespace TrabajoPracticoP3.Services.Implementations
     public class AdminServices : IAdminServices
     {
 
-        private readonly Context _context;
+        private readonly ECommerceContext _context;
 
-        public AdminServices(Context context)
+        public AdminServices(ECommerceContext context)
         {
          _context = context;
         }
